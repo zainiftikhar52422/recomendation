@@ -1,0 +1,55 @@
+<head>
+      <script type = "text/javascript" 
+          src = "{{ url_for('static', filename = 'hello.js') }}" >
+      </script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ </head>
+ 
+ <body>
+   <div class="container">
+         <br><br><br><br>
+         <div class="row">
+               <div class="col-md-12">
+                  <h3>Searched Movie</h3>
+               </div>
+            </div>
+         <div class="row">
+                     <div class="col-md-4">
+                           <div class="panel panel-default" >
+                                 
+                                 <div class="panel-footer">
+                                    <h2>{{ searchedMovieDetail["title"] }}</h2>
+                                    <p><span style="font-size:large;">Movie Ratings: </span>{{ searchedMovieDetail["simpleRating"] }}</p>
+                                    <p><span style="font-size:large;">Movie Genres: </span>{{ searchedMovieDetail["genres"] }}</p>
+                                    <p><span style="font-size:large;">Movie aRatings: </span>{{ searchedMovieDetail["arating"] }}</p>
+                                 </div>
+                           </div>
+                     </div>
+         </div>
+         <br><br><br><br>
+      <div class="row">
+         <div class="col-md-12">
+            <h3>Recomeded Movies</h3>
+         </div>
+      </div>
+      <div class="row">
+      {% for movie in recomendedMovies %}
+            <div class="col-md-4">
+                  <div class="panel panel-default">
+
+                        <div class="panel-footer">
+                           <h2>{{ movie["title"] }}</h2>
+                           <p><span style="font-size:large;">Movie Ratings: </span>{{ movie["rating"] }}</p>
+                           <p><span style="font-size:large;">Movie aRatings: </span>{{ movie["arating"] }}</p>
+                           <p><span style="font-size:large;">Movie Genres: </span>{{ movie["genres"] }}</p>
+                           <p><span style="font-size: large;">Distance: </span>{{ movie["distance"] }}</p>
+                           <a class="btn btn-success" href="/{{ movie['title'] }}">Open</a>
+                        </div>
+                  </div>
+            </div>
+      {% endfor %}
+      </div>
+   </div>
+ </body>

@@ -1,0 +1,27 @@
+<head>
+        <script type = "text/javascript" 
+            src = "{{ url_for('static', filename = 'hello.js') }}" >
+        </script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   </head>
+   
+   <body>
+     <div class="container">
+            <br><br><br><br>
+            Search a Movie
+         <form action="/" method="get">
+             <input type="text" name="queryMovie" id="queryMovie">
+             <a class="btn btn-success" onclick="myFunction()">Search</a>
+         </form>
+     </div>
+
+     <script>
+        function myFunction() {
+            mo=document.getElementById("queryMovie").value;
+            alert(String(mo));
+            location.replace("/"+String(mo));
+        }
+     </script>
+   </body>

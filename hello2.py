@@ -3,7 +3,7 @@ app = Flask(__name__)
 # import important libraries 
 import pandas as pd    # for handling excel file and making dataFrames
 import math
-import imdb            # for movies thumbnail
+#import imdb            # for movies thumbnail
 
 pd_final=pd.read_csv('ml-latest-small/finalized ratings.csv')
 def DataInDataFrame(queyMovieName):
